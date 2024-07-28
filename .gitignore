@@ -6,6 +6,7 @@ node_modules
 /vendor
 /.idea
 /.vscode
+/content/uploads
 
 /phpcs.xml
 /phpunit.xml
