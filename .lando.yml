@@ -26,6 +26,24 @@ services:
     run_as_root:
     install_dependencies_as_root:
       - bash bin/local-env/install-dependencies.sh
+  mailpit:
+    type: lando
+    app_mount: delegated
+    services:
+      image: axllent/mailpit:latest
+      volumes:
+        - mailpit:/data
+      ports:
+        - 8025:8025
+        - 1025:1025
+      environment:
+        MP_MAX_MESSAGES: 5000
+        MP_DATA_FILE: /data/mailpit.db
+        MP_SMTP_AUTH_ACCEPT_ANY: 1
+        MP_SMTP_AUTH_ALLOW_INSECURE: 1
+      command: '/mailpit'
+    volumes:
+      mailpit:
 
 tooling:
   wp:
