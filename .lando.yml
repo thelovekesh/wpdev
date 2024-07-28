@@ -12,8 +12,8 @@ config:
     php: config/php.ini
 
 env_file:
-  - .env
   - .env.local
+  - .env
 
 proxy:
   appserver_nginx:
