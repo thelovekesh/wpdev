@@ -7,7 +7,7 @@ config:
   via: nginx
   database: mariadb:10.6
   composer_version: 2
-  xdebug: false
+  xdebug: off
   config:
     php: config/php.ini
 
@@ -21,9 +21,12 @@ proxy:
 
 services:
   appserver:
+    overrides:
+      environment:
+        XDEBUG_MODE:
+        PHP_IDE_CONFIG: "serverName=appserver"
     run:
       - bash bin/local-env/setup-wordpress.sh
-    run_as_root:
     install_dependencies_as_root:
       - bash bin/local-env/install-dependencies.sh
   mailpit:
@@ -66,3 +69,7 @@ tooling:
     service: appserver
     cmd:
       - tail -f /tmp/php-error.log 2>/dev/null || { echo "\e[31mNo logs found!\e[0m"; }
+  xdebug:
+    service: appserver
+    cmd: bash bin/local-env/xdebug.sh
+    user: root
