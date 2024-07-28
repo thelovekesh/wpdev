@@ -1,0 +1,42 @@
+name: thelovekesh
+
+recipe: wordpress
+
+config:
+  php: 8.2
+  via: nginx
+  database: mariadb:10.6
+  composer_version: 2
+  xdebug: false
+  config:
+    php: config/php.ini
+
+env_file:
+  - .env
+  - .env.local
+
+proxy:
+  appserver_nginx:
+    - local.thelovekesh.com
+
+services:
+  appserver:
+    run:
+      - bash bin/local-env/setup-wordpress.sh
+    run_as_root:
+    install_dependencies_as_root:
+      - bash bin/local-env/install-dependencies.sh
+
+tooling:
+  wp:
+    service: appserver
+  npm:
+    service: appserver
+  npx:
+    service: appserver
+  composer:
+    service: appserver
+  git:
+    service: appserver
+  phpunit:
+    service: appserver
