@@ -7,7 +7,7 @@ fi
 
 set -ex
 
-if [[ ! -e "$LANDO_MOUNT/public/core-dev" ]]; then
+if [[ ! -e "$LANDO_MOUNT/wp" ]]; then
   git clone https://github.com/WordPress/WordPress.git --depth 1 --branch $WORDPRESS_TAG "$LANDO_MOUNT/wp"
   rm -rf "$LANDO_MOUNT/wp/.git"
 fi
