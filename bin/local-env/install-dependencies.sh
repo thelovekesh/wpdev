@@ -10,8 +10,6 @@ cd "$(dirname "$0")"
 echo "Installing Dependencies"
 set -xe
 
-apt-get install ca-certificates curl gnupg -y
-
 curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh | bash
 
 mkdir -p /etc/apt/keyrings
