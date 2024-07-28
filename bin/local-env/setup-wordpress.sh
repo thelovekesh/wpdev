@@ -9,6 +9,7 @@ set -ex
 
 if [[ ! -e "$LANDO_MOUNT/public/core-dev" ]]; then
   git clone https://github.com/WordPress/WordPress.git --depth 1 --branch $WORDPRESS_TAG "$LANDO_MOUNT/wp"
+  rm -rf "$LANDO_MOUNT/wp/.git"
 fi
 
 # When all above steps are skipped, we need to make sure the database is running.
