@@ -62,3 +62,7 @@ tooling:
     service: appserver
   phpunit:
     service: appserver
+  wp-logs:
+    service: appserver
+    cmd:
+      - tail -f /tmp/php-error.log 2>/dev/null || { echo "\e[31mNo logs found!\e[0m"; }
