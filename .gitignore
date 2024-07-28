@@ -1,0 +1,13 @@
+.env
+.DS_Store
+node_modules
+
+/wp
+/vendor
+/.idea
+/.vscode
+
+/phpcs.xml
+/phpunit.xml
+/.lando.local.yml
+/.phpunit.result.cache
