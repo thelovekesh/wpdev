@@ -12,7 +12,6 @@ config:
     php: config/php.ini
 
 env_file:
-  - .env.local
   - .env
 
 proxy:
