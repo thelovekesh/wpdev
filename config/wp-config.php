@@ -31,7 +31,7 @@ $constants = array(
 	'WP_HOME'                        => 'https://local.thelovekesh.com',
 	'WP_SITEURL'                     => 'https://local.thelovekesh.com',
 	'WP_CONTENT_DIR'                 => dirname( __DIR__ ) . '/content',
-	'WP_CONTENT_URL'                 => 'https://local.thelovekesh.com/wp-content',
+	'WP_CONTENT_URL'                 => 'https://local.thelovekesh.com/content',
 );
 
 foreach ( $constants as $constant_name => $constant_value ) {
