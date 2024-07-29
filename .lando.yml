@@ -4,6 +4,7 @@ recipe: wordpress
 
 config:
   via: nginx
+  webroot: wp
   database: mariadb:10.6
   composer_version: 2
   xdebug: off
@@ -26,6 +27,7 @@ services:
       image: thelovekesh/php:latest
     run:
       - setup-wordpress
+      - cp config/wp-config.php wp/wp-config.php
   mailpit:
     type: lando
     app_mount: delegated
