@@ -29,9 +29,9 @@ $constants = array(
 	'WP_ENVIRONMENT_TYPE'            => 'development',
 
 	'WP_HOME'                        => 'https://local.thelovekesh.com',
-	'WP_SITEURL'                     => 'https://local.thelovekesh.com/wp',
-	'WP_CONTENT_DIR'                 => __DIR__ . '/content',
-	'WP_CONTENT_URL'                 => 'https://local.thelovekesh.com/content',
+	'WP_SITEURL'                     => 'https://local.thelovekesh.com',
+	'WP_CONTENT_DIR'                 => dirname( __DIR__ ) . '/content',
+	'WP_CONTENT_URL'                 => 'https://local.thelovekesh.com/wp-content',
 );
 
 foreach ( $constants as $constant_name => $constant_value ) {
@@ -43,7 +43,7 @@ foreach ( $constants as $constant_name => $constant_value ) {
 unset( $constants, $constant_name, $constant_value );
 
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/wp/' );
+	define( 'ABSPATH', __DIR__ . '/' );
 }
 
 require_once ABSPATH . 'wp-settings.php';
