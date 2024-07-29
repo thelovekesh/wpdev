@@ -32,6 +32,8 @@ services:
   mailpit:
     type: lando
     app_mount: delegated
+    moreHttpPorts:
+      - 8025
     services:
       image: axllent/mailpit:latest
       volumes:
@@ -51,14 +53,19 @@ services:
     type: phpmyadmin
     hosts:
       - database
+  nodejs:
+    type: node:20
+    scanner: false
 
 tooling:
   wp:
     service: appserver
   npm:
-    service: appserver
+    service: nodejs
   npx:
-    service: appserver
+    service: nodejs
+  node:
+    service: nodejs
   composer:
     service: appserver
   git:
