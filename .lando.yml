@@ -54,7 +54,7 @@ services:
     hosts:
       - database
   nodejs:
-    type: node:20
+    type: node:24
     scanner: false
 
 tooling:
