@@ -25,7 +25,7 @@ services:
       environment:
         XDEBUG_MODE:
         PHP_IDE_CONFIG: "serverName=appserver"
-      image: thelovekesh/php:latest
+      image: thelovekesh/php:8.2-fpm
     run:
       - setup-wordpress
       - cp config/wp-config.php wp/wp-config.php
